@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 # Register your models here.
 
 admin.site.register(Category)
-admin.site.register(Admin)
 admin.site.register(Customer)
 admin.site.register(Seller)
 admin.site.register(CustomerAddress)
