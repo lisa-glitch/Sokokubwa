@@ -3,12 +3,12 @@
 <div class="container">
     <div class="row my-5">
         <h5 class="text-dark">Categories</h5>
-        <button class="btn btn-dark ml-auto" data-toggle="modal" data-target="#categoryModal">
+        <a class="btn btn-dark ml-auto" href="{% url 'product_form' %}">
             <i class="fa fa-plus" aria-hidden="true"></i>New Product
-        </button>
+        </a>
     </div>
     <div class="row justify-content-center my-5">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">All Products</h4>
@@ -25,7 +25,6 @@
                                 <th>Cost</th>
                                 <th>Quantity</th>
                                 <th>Description</th>
-                                <th>Image</th>
                                 <th>Featured</th>
                                 <th>Status</th>
                                 <th>Seller</th>
@@ -41,7 +40,6 @@
                                     <td>{{object.cost}}</td>
                                     <td>{{object.quantity}}</td>
                                     <td>{{object.description}}</td>
-                                    <td>{{object.image}}</td>
                                     <td>{{object.featured}}</td>
                                     <td>{{object.status}}</td>
                                     <td>{{object.seller}}</td>

@@ -10,6 +10,9 @@ class Category(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.name
+
 class Customer(models.Model):
     name=models.CharField(max_length=300, null=False, blank=False)
     email=models.EmailField(max_length=300, null=False, blank=False)
@@ -17,6 +20,9 @@ class Customer(models.Model):
     phone_number=models.IntegerField(null=True, blank=True)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
 
 class Seller(models.Model):
     name=models.CharField(max_length=300, null=False, blank=False)
@@ -29,6 +35,9 @@ class Seller(models.Model):
     password=models.CharField(max_length=300, null=False, blank=False)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
 
 
 class CustomerAddress(models.Model):
@@ -44,7 +53,7 @@ class Product(models.Model):
     cost= models.IntegerField(null=False, blank=False)
     quantity= models.IntegerField(null=False, blank=False)
     description= models.TextField(null=True, blank=True)
-    image=models.CharField(max_length=50, null=False, blank=False)
+    image=models.ImageField(upload_to='images/')
     featured=models.BooleanField(max_length=50, null=False, blank=True, default=False)
     status= models.CharField(max_length=50, null=False, blank=True, default="Unverified")
     seller_id=models.CharField(max_length=50, null=False, blank=False)

@@ -55,6 +55,18 @@ class SellerCreate(CreateView):
 class ProductCreate(CreateView):
     model= Product
     fields=['name', 'cost', 'quantity', 'description', 'image', 'seller_id', 'category_id']
+    template_name='shop/admin/product_form.html'
+
+    def get_success_url(self):
+        return reverse('product_list')
+
+class ProductUpdate(UpdateView):
+    model= Product
+    fields=['name', 'cost', 'quantity', 'description', 'image', 'seller_id', 'category_id']
+    template_name='shop/admin/product_form.html'
+
+    def get_success_url(self):
+        return reverse('product_list')
 
 
 class CategoryList(ListView):
