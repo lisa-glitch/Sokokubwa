@@ -19,11 +19,14 @@
   
    
     <div class="wrapper">
+        {% if user.is_authenticated %}
 
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            {% include 'shop/admin/layouts/sidebar.html' %}
-        </nav>
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                {% include 'shop/admin/layouts/sidebar.html' %}
+            </nav>
+        {% endif %}
+
     
         <!-- Page Content -->
         <div id="content" class='container-fluid'>
@@ -31,6 +34,7 @@
 
             {% block content %}
             {% endblock content %}
+            {% endif %}
 
             <!-- We'll fill this with dummy content -->
         </div>

@@ -34,8 +34,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    'django.contrib.contenttypes',#allows us to see if a user has been authenticated
+    'django.contrib.sessions',#manages sessions
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shop.apps.ShopConfig',#registering the app
@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+LOGIN_REDIRECT_URL='/'
 
 ROOT_URLCONF = 'sokokubwa.urls'
 

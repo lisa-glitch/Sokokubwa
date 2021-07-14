@@ -19,6 +19,7 @@ urlpatterns=[
     path('orders',OrderList.as_view(), name='order_list'),
     path('ajax/delete/category', views.deleteCategory, name="ajax_delete_category"),
     
+    
 
 
 ]
