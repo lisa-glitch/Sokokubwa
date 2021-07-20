@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-LOGIN_REDIRECT_URL='/'
+LOGIN_REDIRECT_URL='/categories'
 
 ROOT_URLCONF = 'sokokubwa.urls'
 

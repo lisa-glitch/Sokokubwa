@@ -12,7 +12,7 @@ urlpatterns=[
     path('category/update/<pk>/', CategoryUpdate.as_view(), name='category_update'),
     path('ajax/delete/category', views.deleteCategory, name="ajax_delete_category"),
 
-    path('product', ProductList.as_view(), name='product_list'),
+    path('products', ProductList.as_view(), name='product_list'),
     path('product/create', ProductCreate.as_view(), name='product_form'),
     path('product/detail/<pk>/', ProductDetail.as_view(), name='product_detail'),
     path('product/update/<pk>/', ProductUpdate.as_view(), name='product_update'),

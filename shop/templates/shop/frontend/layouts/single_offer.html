@@ -1,0 +1,22 @@
+{% load static %}
+<a href="#" style="text-decoration: none;">
+    <div class="product-card bg-dark text-white">
+		<div class="product-badge">Hot</div>
+		<div class="product-tumb">
+			<img src="{{product.image.url}}" alt="">
+		</div>
+		<div class="product-details">
+			<span class="product-catagory">{{product.category_id}}</span>
+			<h4 class="text-white"><a href="">{{product.name}}</a></h4>
+			<p>{{product.description}}</p>
+			<div class="product-bottom-details">
+				<div class="product-price">Kshs {{product.cost}}</div>
+                <div class="product-offer">Kshs {{product.offer_amount}}</div>
+				<div class="product-links">
+					<a href=""><i class="fa fa-heart"></i></a>
+					<a href=""><i class="fa fa-shopping-cart"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</a>

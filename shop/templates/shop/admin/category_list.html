@@ -3,9 +3,9 @@
 <div class="container">
     <div class="row my-5">
         <h5 class="text-dark">Categories</h5>
-        <button class="btn btn-dark ml-auto" data-toggle="modal" data-target="#categoryModal">
-            <i class="fa fa-plus" aria-hidden="true"></i>New Category
-        </button>
+        <a href="{% url 'category_create' %}" class="btn btn-dark ml-auto">
+            <i class="fa fa-plus-circle mr-1" aria-hidden="true"></i> New Category
+        </a>
     </div>
     <div class="row justify-content-center my-5">
         <div class="col-lg-8">

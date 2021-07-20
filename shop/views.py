@@ -28,13 +28,12 @@ class CategoryCreate(CreateView):
     #function to redirect users
 
     def get_success_url(self):
-        return reverse('category_list')
+        return reverse('categories')
 
 
 class CategoryList(ListView):
     login_required=True
     model=Category
-    fields='--all--'
     template_name= 'shop/admin/category_list.html'
     
 
@@ -52,13 +51,12 @@ class CategoryUpdate(UpdateView):
     success_url="/categories"
 
 
-
     
 
 class SellerCreate(CreateView):
     login_required=True
     model= Seller
-    fields= ['user_name', 'email', 'logo', 'phone number', 'status', 'password']
+    fields= ['email', 'logo', 'phone_number', 'status', 'password']
     template_name="shop/admin/seller_form.html"
 
     def get_success_url(self):
@@ -68,14 +66,14 @@ class SellerCreate(CreateView):
 class SellerList(ListView):
     login_required=True
     model= Seller
-    fields= ['user_name', 'email', 'logo', 'phone number', 'status', 'password']
+    fields= ['email', 'logo', 'phone_number', 'status', 'password']
     template_name=('shop/admin/seller_list.html')
 
 
 class SellerUpdate(UpdateView):
     login_required=True
     model= Seller
-    fields= ['user_name', 'email', 'logo', 'phone number', 'status', 'password']
+    fields= ['email', 'logo', 'phone_number', 'status', 'password']
     template_name= 'shop/admin/seller_update.html'
 
     def get_success_url(self):
@@ -85,7 +83,7 @@ class SellerUpdate(UpdateView):
 class SellerDelete(DeleteView):
     login_required=True
     model= Seller
-    fields= ['user_name', 'email', 'logo', 'phone number', 'status', 'password']
+    fields= ['email', 'logo', 'phone_number', 'status', 'password']
     template_name= 'shop/admin/seller_delete.html'
 
     def get_success_url(self):
@@ -94,7 +92,7 @@ class SellerDelete(DeleteView):
 class SellerDetail(DetailView):
     login_required=True
     model= Seller
-    fields= ['user_name', 'email', 'logo', 'phone number', 'status', 'password']
+    fields= ['email', 'logo', 'phone_number', 'status', 'password']
     template_name='shop/admin/seller_detail.html'
 
 
@@ -256,6 +254,11 @@ def deleteCategory(request):
     category_id=request.POST.get('id', None)
     category=Category.objects.get(id=category_id)
     category.delete()
+
+    ##If the category is deleted successfully
+    ##Send a confirmation message to the frontend
+    ##Response messages are usually sent as dictionaries
+    ##Here we are sending a message boolean of true
     data={
         'deleted':True
     }
