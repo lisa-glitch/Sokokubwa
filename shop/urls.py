@@ -6,6 +6,7 @@ from shop.views import *
 
 urlpatterns=[
     path("", views.home, name='home'),
+    path('dashboard', views.adminDashboard, name='dashboard'),
     path('categories',CategoryList.as_view(), name='categories'),
     path('category/detail/<pk>/', CategoryDetail.as_view(),name='category_detail'),
     path('create/category', CategoryCreate.as_view(), name='category_create'),
@@ -19,7 +20,7 @@ urlpatterns=[
     path('product/delete/<pk>/', ProductDetail.as_view(), name='product_delete'),
 
     path('sellers', SellerList.as_view(), name='seller_list'),
-    path('seller/create', SellerCreate.as_view(), name='seller_form'),
+    path('seller/create', SellerCreate.as_view(), name='seller_create'),
     path('seller/detail/<pk>/', SellerDetail.as_view(), name='seller_detail'),
     path('seller/update/<pk>/', SellerUpdate.as_view(), name='seller_update'),
     path('seller/delete/<pk>/', SellerDelete.as_view(), name='seller_delete'),

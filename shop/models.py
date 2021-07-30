@@ -47,6 +47,8 @@ class CustomerAddress(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
 
+
+
 class Product(models.Model):
     name=models.CharField(max_length=50, null=False, blank=False)
     category_id= models.ForeignKey('Category', on_delete=models.CASCADE,blank=False, null=False )
@@ -68,6 +70,9 @@ class Order(models.Model):
     customer_id= models.ForeignKey('Customer', on_delete= models.CASCADE, null=False, blank=False)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.order_number
 
 
 class OrderProduct(models.Model):
@@ -102,6 +107,10 @@ class Payment(models.Model):
     description= models.CharField(null=True, blank=True, max_length= 500)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
+    
+    
+    def __str__(self):
+        return self.invoice_number
 
 
 class Delivery(models.Model):

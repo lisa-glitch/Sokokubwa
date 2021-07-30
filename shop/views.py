@@ -18,7 +18,22 @@ def home(request):
     context['products']= Product.objects.all()[:4]
     context['categories']=Category.objects.all()
 
+
     return render(request, "shop/frontend/home.html", context)
+
+def adminDashboard(request):
+
+    ## Declaring a dictionary we shall use to package the data we will
+    #  send data to the frontend html template for display
+    context={}
+
+    context['product_count']=Product.objects.all().count()
+    context['order_count']=Order.objects.all().count()
+    context['payment_count']=Payment.objects.all().count()
+    context['payments']=Payment.objects.all()[:10]
+    context['pending_orders']=Order.objects.filter(status='Pending')
+
+    return render (request, 'shop/admin/dashboard.html', context)
 
 class CategoryCreate(CreateView):
     model=Category
@@ -56,25 +71,24 @@ class CategoryUpdate(UpdateView):
 class SellerCreate(CreateView):
     login_required=True
     model= Seller
-    fields= ['email', 'logo', 'phone_number', 'status', 'password']
+    fields= '__all__'
     template_name="shop/admin/seller_form.html"
 
     def get_success_url(self):
-        return reverse('seller_list') 
+        return reverse('sellers') 
 
 
 class SellerList(ListView):
     login_required=True
     model= Seller
-    fields= ['email', 'logo', 'phone_number', 'status', 'password']
     template_name=('shop/admin/seller_list.html')
 
 
 class SellerUpdate(UpdateView):
     login_required=True
     model= Seller
-    fields= ['email', 'logo', 'phone_number', 'status', 'password']
-    template_name= 'shop/admin/seller_update.html'
+    fields= '__all__'
+    template_name= 'shop/admin/seller_form.html'
 
     def get_success_url(self):
         return reverse('seller_list') 
@@ -104,7 +118,7 @@ class ProductCreate(CreateView):
     login_required=True
 
     def get_success_url(self):
-        return reverse('product_list')
+        return reverse('products')
 
 class ProductUpdate(UpdateView):
     login_required=True
@@ -113,7 +127,7 @@ class ProductUpdate(UpdateView):
     template_name='shop/admin/product_update.html'
 
     def get_success_url(self):
-        return reverse('product_list')
+        return reverse('products')
 
 
 class ProductDelete(DeleteView):
@@ -122,7 +136,7 @@ class ProductDelete(DeleteView):
     fields= ['name', 'cost', 'quantity', 'description', 'image', 'seller_id', 'category_id']
     template_name='shop/admin/product_delete.html'
     def get_success_url(self):
-        return reverse('product_list') 
+        return reverse('products') 
 
 
 class ProductDetail(DetailView):
