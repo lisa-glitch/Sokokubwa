@@ -37,7 +37,7 @@ class Seller(models.Model):
     updated_at=models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.email
 
 
 class CustomerAddress(models.Model):

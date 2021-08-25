@@ -97,7 +97,6 @@ class SellerUpdate(UpdateView):
 class SellerDelete(DeleteView):
     login_required=True
     model= Seller
-    fields= ['email', 'logo', 'phone_number', 'status', 'password']
     template_name= 'shop/admin/seller_delete.html'
 
     def get_success_url(self):
@@ -158,7 +157,7 @@ class ProductList(ListView):
 class OfferCreate(CreateView):
     login_required= True
     model= Offer
-    fields= ['product_id', 'offer_amount','start_date', 'end_date']
+    fields= '__all__'
     template_name= 'shop/admin/offer_list.html'
 
     def get_success_url(self):
@@ -167,13 +166,11 @@ class OfferCreate(CreateView):
 class OfferList(ListView):
     login_required= True
     model= Offer
-    fields= ['product_id', 'offer_amount','start_date', 'end_date']
-    template_name= 'offer_list'
-
+    template_name = 'shop/admin/offer_list.html'
+ 
 class OfferDetail(DetailView):
     login_required=True
     model=Offer
-    fields= ['product_id', 'offer_amount','start_date', 'end_date']
     template_name='shop/admin/offer_detail.html'
 
 class OfferDelete(DeleteView):

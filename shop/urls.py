@@ -29,7 +29,7 @@ urlpatterns=[
     path('offers', OfferList.as_view(), name='offer_list'),
     path('offer/create', OfferCreate.as_view(), name='offer_form'),
     path('offer/detail/<pk>/', OfferDetail.as_view(), name='offer_detail'),
-    path('offer/update/<pk>/', OfferUpdate.as_view(), name='offer_detail'),
+    path('offer/update/<pk>/', OfferUpdate.as_view(), name='offer_update'),
     path('offer/delete/<pk>/', OfferDelete.as_view(), name='offer_delete'),
 
     path('vouchers',VoucherList.as_view(), name='voucher_list'),
@@ -45,11 +45,6 @@ urlpatterns=[
     path('order/update/<pk>/', OrderUpdate.as_view(), name='order_update'),
     path('order/delete/<pk>/', OrderDelete.as_view(), name='order_delete'),
 
-    path('offers', OfferList.as_view(), name='offer_list'),
-    path('offer/create', OfferCreate.as_view(), name='offer_form'),
-    path('offer/detail/<pk>/', OfferDetail.as_view(), name='offer_detail'),
-    path('offer/update/<pk>/', OfferUpdate.as_view(), name='offer_update'),
-    path('offer/delete/<pk>/', OfferDelete.as_view(), name='offer_delete'),
     
     path('customers', CustomerList.as_view(), name='customer_list'),
     path('customer/create', CustomerCreate.as_view(), name='customer_form'),
