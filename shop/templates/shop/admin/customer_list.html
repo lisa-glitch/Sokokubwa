@@ -3,9 +3,9 @@
 <div class="container">
     <div class="row my-5">
         <h5 class="text-dark">Customers</h5>
-        <button class="btn btn-dark ml-auto" data-toggle="modal" data-target="#categoryModal">
+        <a href= "{% url 'customer_form' %}" class="btn btn-dark ml-auto">
             <i class="fa fa-plus" aria-hidden="true"></i>  New Customer
-        </button>
+        </a>
     </div>
     <div class="row justify-content-center my-5">
         <div class="col-lg-8">
@@ -33,7 +33,7 @@
                                 <tr>
                                     <td>{{object.email}}</td>
                                     <td>{{object.name}}</td>
-                                    <td>{{object.}}</td>
+                                    <td>{{object.password}}</td>
                                     <td>{{object.phone_number}}</td>
                                     <td>
                                         <a href="{% url 'customer_update' object.id %}" class="btn btn-dark btn-sm">

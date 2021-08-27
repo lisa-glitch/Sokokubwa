@@ -282,7 +282,7 @@ class CustomerCreate(CreateView):
     model=Customer
     fields=['name', 'email', 'password', 'phone_number']
     template_name= 'shop/admin/customer_form.html'
-    success_url='/customer'
+    success_url='/customers'
 
 class CustomerList(ListView):
     login_required=True
@@ -291,16 +291,17 @@ class CustomerList(ListView):
     template_name='shop/admin/customer_list.html'
 
 class CustomerDetail(DetailView):
-    template_name= 'shop,admin/customer_detail.html'
+    template_name= 'shop/admin/customer_detail.html'
     login_required=True
     fields=['name', 'email', 'password', 'phone_number']
     success_url='/customer'
 
 class CustomerUpdate(UpdateView):
-    template_name= 'shop,admin/customer_update.html'
+    template_name= 'shop/admin/customer_update.html'
     login_required=True
     fields=['name', 'email', 'password', 'phone_number']
-    success_url='/customer'
+    success_url='/customers'
+    model= Customer
 
 
 class CustomerDelete(DeleteView):
@@ -308,7 +309,7 @@ class CustomerDelete(DeleteView):
     model=Customer
     fields=['name', 'email', 'password', 'phone_number']
     template_name='shop/admin/customer_delete.html'
-    success_url='/customer'
+    success_url='/customers'
 
 
 
@@ -317,7 +318,7 @@ class PaymentCreate(CreateView):
     fields=['order_id', 'mode', 'amount', 'description']
     model=Payment
     template_name='shop/admin/payment_form.html'
-    success_url='/payment'
+    success_url='/payments'
 
 class PaymentList(ListView):
     login_required=True
@@ -337,11 +338,11 @@ class PaymentUpdate(UpdateView):
     model=Payment
     fields=['order_id', 'mode', 'amount', 'description']
     template_name='shop/admin/payment_update.html'
-    success_url='/payment'
+    success_url='/payments'
 
 class PaymentDelete(DeleteView):
     login_required=True
     model=Payment
     fields=['order_id', 'mode', 'amount', 'description']
     template_name='shop/admin/payment_delete.html'
-    success_url='/payment'
+    success_url='/payments'
